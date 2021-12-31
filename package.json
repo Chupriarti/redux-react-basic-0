@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Chupriarti/redux-react-basic-0#readme",
   "devDependencies": {
     "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.7",
     "babel-loader": "^8.2.3",
     "clean-webpack-plugin": "^4.0.0",
     "css-loader": "^5.2.7",
