@@ -1,8 +1,9 @@
 import React from 'react';
+import './app.less'
 
 const App = () => {
     return (
-        <div>
+        <div className="app">
             React App
         </div>
     )
