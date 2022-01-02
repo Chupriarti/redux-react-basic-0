@@ -6,7 +6,12 @@ const Repo = (props) => {
 
     return (
         <div className="repo">
-            Repo
+            <div className="repo-header">
+                <div className="repo-header-name">{repo.name}</div>
+                <div className="repo-header-stars">{repo.stargazers_count}</div>
+            </div>
+            <div className="repo-last-commit">{repo.updated_at}</div>
+            <a href={repo.html_url} className="repo-link">Link to Repo: {repo.html_url}</a>
         </div>
     )
 }
