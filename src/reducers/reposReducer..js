@@ -16,3 +16,5 @@ export default function reposReducer(state = defaultState, action){
             return state;
     }
 }
+
+export const setRepos = (repos) => ({type: SET_REPOS, payload: repos});
