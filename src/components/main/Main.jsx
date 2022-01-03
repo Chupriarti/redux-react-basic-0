@@ -14,6 +14,10 @@ const Main = () => {
         dispatch(getRepos());
     }, [])
 
+    const searchHandler = () => {
+        dispatch(getRepos(seacrhValue));
+    }
+
     return (
         <div className="main">
             <div className="search">
@@ -24,7 +28,7 @@ const Main = () => {
                     placeholder="Input repo name" 
                     className="search-input" 
                 />
-                <button className="search-btn">Search</button>
+                <button onClick={searchHandler} className="search-btn">Search</button>
             </div>
             {
                 isFetching === false
