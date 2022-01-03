@@ -8,6 +8,7 @@ const Main = () => {
     const dispatch = useDispatch();
     const repos = useSelector(state => state.repos.items);
     const isFetching = useSelector(state => state.repos.isFetching);
+    const [seacrhValue, setSearchValue] = React.useState("");
 
     React.useEffect(() => {
         dispatch(getRepos());
@@ -16,7 +17,13 @@ const Main = () => {
     return (
         <div className="main">
             <div className="search">
-                <input type="text" placeholder="Input repo name" className="search-input" />
+                <input
+                    value={seacrhValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                    type="text" 
+                    placeholder="Input repo name" 
+                    className="search-input" 
+                />
                 <button className="search-btn">Search</button>
             </div>
             {
