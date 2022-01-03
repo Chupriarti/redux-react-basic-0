@@ -24,9 +24,7 @@ const Main = () => {
                     ?
                 repos.map(repo => <Repo repo={repo} />)
                     :
-                <div className="fetching">
-                    Fetching...
-                </div>
+                <div className="fetching"></div>
             }
         </div>
     )
