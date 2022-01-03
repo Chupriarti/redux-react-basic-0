@@ -19,9 +19,15 @@ const Main = () => {
                 <input type="text" placeholder="Input repo name" className="search-input" />
                 <button className="search-btn">Search</button>
             </div>
-            {repos.map(repo => 
-                <Repo repo={repo} />
-            )}
+            {
+                isFetching === false
+                    ?
+                repos.map(repo => <Repo repo={repo} />)
+                    :
+                <div className="fetching">
+                    Fetching...
+                </div>
+            }
         </div>
     )
 }
