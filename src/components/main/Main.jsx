@@ -8,6 +8,9 @@ const Main = () => {
     const dispatch = useDispatch();
     const repos = useSelector(state => state.repos.items);
     const isFetching = useSelector(state => state.repos.isFetching);
+    const currentPage = useSelector(state => state.repos.currentPage);
+    const totalCount = useSelector(state => state.repos.totalCount);
+    const perPage = useSelector(state => state.repos.perPage);
     const [seacrhValue, setSearchValue] = React.useState("");
 
     React.useEffect(() => {
