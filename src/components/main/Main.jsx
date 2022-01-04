@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCurrentPage } from '../../reducers/reposReducer';
+import { createPages } from '../../utils/pagesCreator';
 import { getRepos } from '../actions/repos';
 import './main.less'
 import Repo from './repo/Repo';
@@ -13,8 +14,8 @@ const Main = () => {
     const totalCount = useSelector(state => state.repos.totalCount);
     const perPage = useSelector(state => state.repos.perPage);
     const [seacrhValue, setSearchValue] = React.useState("");
-
-    const pages = [1, 2, 3, 4]; //TODO: remove mock data
+    const pagesCount = Math.ceil(totalCount / perPage);
+    const pages = createPages(pagesCount, currentPage);
 
     React.useEffect(() => {
         dispatch(getRepos(seacrhValue, currentPage, perPage));
