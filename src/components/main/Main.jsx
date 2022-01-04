@@ -13,6 +13,8 @@ const Main = () => {
     const perPage = useSelector(state => state.repos.perPage);
     const [seacrhValue, setSearchValue] = React.useState("");
 
+    const pages = [1, 2, 3, 4]; //TODO: remove mock data
+
     React.useEffect(() => {
         dispatch(getRepos());
     }, [])
@@ -42,6 +44,16 @@ const Main = () => {
                     :
                 <div className="fetching"></div>
             }
+            <div className="pages">
+                {pages.map((p, index) => 
+                    <span 
+                        key={index} 
+                        className={currentPage === p ? "page current-page" : "page"}
+                    >
+                        {p}
+                    </span>
+                )}
+            </div>
         </div>
     )
 }
