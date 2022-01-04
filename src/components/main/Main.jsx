@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { setCurrentPage } from '../../reducers/reposReducer';
 import { getRepos } from '../actions/repos';
 import './main.less'
 import Repo from './repo/Repo';
@@ -47,6 +48,7 @@ const Main = () => {
             <div className="pages">
                 {pages.map((p, index) => 
                     <span 
+                        onClick={() => dispatch(setCurrentPage(p))}
                         key={index} 
                         className={currentPage === p ? "page current-page" : "page"}
                     >
