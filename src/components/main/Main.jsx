@@ -17,11 +17,12 @@ const Main = () => {
     const pages = [1, 2, 3, 4]; //TODO: remove mock data
 
     React.useEffect(() => {
-        dispatch(getRepos());
-    }, [])
+        dispatch(getRepos(seacrhValue, currentPage, perPage));
+    }, [currentPage])
 
     const searchHandler = () => {
-        dispatch(getRepos(seacrhValue));
+        dispatch(setCurrentPage(1));
+        dispatch(getRepos(seacrhValue, currentPage, perPage));
     }
 
     console.log(repos);
