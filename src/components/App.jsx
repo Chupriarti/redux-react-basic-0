@@ -12,6 +12,7 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<Main />} exact />
                     <Route path="/card" element={<Card />} />
+                    <Route path="*" element={<Main />} />
                 </Routes> 
             </div>
         </BrowserRouter>
