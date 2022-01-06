@@ -26,8 +26,6 @@ const Main = () => {
         dispatch(getRepos(seacrhValue, currentPage, perPage));
     }
 
-    console.log(repos);
-
     return (
         <div className="main">
             <div className="search">
