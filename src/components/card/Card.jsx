@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { getCurrentRepo } from '../actions/repos';
+import './card.less';
 
 const Card = (props) => {
     const {username, reponame} = useParams();
