@@ -16,3 +16,8 @@ export const getCurrentRepo = async (userName, repoName, setRepo) => {
     const response = await axios.get(`https://api.github.com/repos/${userName}/${repoName}`);
     setRepo(response.data);
 }
+
+export const getRepoContributors = async (userName, repoName, setContributors) => {
+    const response = await axios.get(`https://api.github.com/repos/${userName}/${repoName}/contributors?page=1&per_page=10`);
+    setContributors(response.data);
+}
