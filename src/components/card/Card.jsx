@@ -4,7 +4,7 @@ import { getCurrentRepo } from '../actions/repos';
 
 const Card = (props) => {
     const {username, reponame} = useParams();
-    const [repo, setRepo] = React.useState({});
+    const [repo, setRepo] = React.useState({owner: {}});
     const navigate = useNavigate();
 
     React.useEffect(() => {
@@ -15,7 +15,7 @@ const Card = (props) => {
         <div>
             <button onClick={() => navigate(-1)}>BACK</button>
             <div className="card">
-                <img src="" alt="" />
+                <img src={repo.owner.avatar_url} alt="" />
                 <div className="name">{repo.name}</div>
                 <div className="stars">{repo.stargazers_count}</div>
             </div>
