@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { setCurrentPage } from '../../reducers/reposReducer';
 import { createPages } from '../../utils/pagesCreator';
 import { getRepos } from '../actions/repos';
@@ -8,11 +9,13 @@ import Repo from './repo/Repo';
 
 const Main = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const repos = useSelector(state => state.repos.items);
     const isFetching = useSelector(state => state.repos.isFetching);
     const currentPage = useSelector(state => state.repos.currentPage);
     const totalCount = useSelector(state => state.repos.totalCount);
     const perPage = useSelector(state => state.repos.perPage);
+    const isFetchError = useSelector(state => state.repos.isFetchError);
     const [seacrhValue, setSearchValue] = React.useState("");
     const pagesCount = Math.ceil(totalCount / perPage);
     const pages = createPages(pagesCount, currentPage);
@@ -24,6 +27,10 @@ const Main = () => {
     const searchHandler = () => {
         dispatch(setCurrentPage(1));
         dispatch(getRepos(seacrhValue, currentPage, perPage));
+    }
+
+    if (isFetchError){
+        navigate("/error");
     }
 
     return (
