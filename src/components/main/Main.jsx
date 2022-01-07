@@ -29,12 +29,18 @@ const Main = () => {
         dispatch(getRepos(seacrhValue, currentPage, perPage));
     }
 
-    if (isFetchError){
-        navigate("/error");
-    }
+    // if (isFetchError){
+    //     navigate("/error");
+    // }
 
     return (
         <div className="main">
+            {
+                isFetchError && 
+                <div class="alert alert-danger" role="alert">
+                    An error has occurred!
+                </div>
+            }
             <div className="search">
                 <input
                     value={seacrhValue}
