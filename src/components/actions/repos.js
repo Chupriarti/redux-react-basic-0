@@ -13,6 +13,9 @@ export const getRepos = (searchQuesry = "stars:%3E1", currentPage, perPage) => {
         } catch (e) {
             dispatch(setFetchError(true));
             dispatch(setIsFetching(false));
+            setTimeout(() => {
+                dispatch(setFetchError(false));
+            }, 3000);
         }
     }
 }
